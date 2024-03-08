@@ -1,4 +1,4 @@
-#include "a_lolly_test.hpp"
+#include "moe_doctests.hpp"
 #include "path.hpp"
 
 static const list<int> p1= list<int> ();
