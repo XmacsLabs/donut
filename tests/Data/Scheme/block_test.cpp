@@ -5,9 +5,9 @@
  *  \date   2024
  */
 
-#include "moe_doctests.hpp"
 #include "block.hpp"
 #include "file.hpp"
+#include "moe_doctests.hpp"
 #include "string.hpp"
 #include "tm_ostream.hpp"
 
