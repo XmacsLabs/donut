@@ -1,4 +1,4 @@
-#include "a_lolly_test.hpp"
+#include "moe_doctests.hpp"
 #include "modification.hpp"
 
 TEST_CASE ("test construct func") {
