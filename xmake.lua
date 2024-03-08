@@ -42,6 +42,7 @@ end
 
 target("tests") do
     set_kind ("binary")
+    set_default (false)
 
     add_deps("libmoebius")
 
