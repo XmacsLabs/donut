@@ -7,10 +7,12 @@ set_project("moebius")
 MOEBIUS_VERSION= "1.4.0"
 
 local moe_files = {
-    "Data/Tree/**.cpp"
+    "Data/Drd/**.cpp",
+    "Data/Tree/**.cpp",
 }
 local moe_includedirs = {
-    "Data/Tree"
+    "Data/Drd",
+    "Data/Tree",
 }
 
 add_repositories("moe-repo xmake")
