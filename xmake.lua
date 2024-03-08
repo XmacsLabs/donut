@@ -4,7 +4,7 @@ set_allowedmodes("releasedbg", "release", "debug")
 add_rules("mode.debug")
 
 set_project("moebius")
-MOEBIUS_VERSION= "1.4.0"
+MOEBIUS_VERSION= "0.1.0"
 
 local moe_files = {
     "Data/Drd/**.cpp",
@@ -38,6 +38,11 @@ target("libmoebius") do
     add_files(moe_files)
 
     add_packages("lolly")
+
+    add_headerfiles("Data/Drd/(*.hpp)")
+    add_headerfiles("Data/Scheme/(*.hpp)")
+    add_headerfiles("Data/Tree/(*.hpp)")
+    add_headerfiles("Kernel/Types/(*.hpp)")
 end
 
 target("tests") do
