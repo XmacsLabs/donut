@@ -9,15 +9,17 @@ MOEBIUS_VERSION= "1.4.0"
 local moe_files = {
     "Data/Drd/**.cpp",
     "Data/Tree/**.cpp",
+    "Kernel/Types/**.cpp",
 }
 local moe_includedirs = {
     "Data/Drd",
     "Data/Tree",
+    "Kernel/Types",
 }
 
 add_repositories("moe-repo xmake")
 
-LOLLY_VERSION= "1.4.0"
+LOLLY_VERSION= "1.4.1"
 add_requires("lolly " .. LOLLY_VERSION)
 
 target("libmoebius") do

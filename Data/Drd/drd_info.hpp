@@ -16,6 +16,7 @@
 #include "tag_info.hpp"
 #include "tree.hpp"
 #include "tree_label.hpp"
+#include "path.hpp"
 
 class drd_info;
 class drd_info_rep : concrete_struct {
