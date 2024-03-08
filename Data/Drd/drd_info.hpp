@@ -12,11 +12,11 @@
 #ifndef DRD_INFO_H
 #define DRD_INFO_H
 
+#include "path.hpp"
 #include "rel_hashmap.hpp"
 #include "tag_info.hpp"
 #include "tree.hpp"
 #include "tree_label.hpp"
-#include "path.hpp"
 
 class drd_info;
 class drd_info_rep : concrete_struct {

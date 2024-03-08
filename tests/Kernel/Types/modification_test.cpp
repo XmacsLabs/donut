@@ -1,5 +1,5 @@
-#include "moe_doctests.hpp"
 #include "modification.hpp"
+#include "moe_doctests.hpp"
 
 TEST_CASE ("test construct func") {
   modification m1 (MOD_ASSIGN, path (), tree ());
