@@ -9,13 +9,16 @@
 #ifndef OBSERVER_H
 #define OBSERVER_H
 
+#include "lolly/data/lolly_tree.hpp"
 #include "string.hpp"
+
+using lolly::data::lolly_tree;
+class observer;
+typedef lolly_tree<observer> tree;
 
 /**
  * @brief Forward declarations.
  */
-class tree;
-class observer;
 class modification;
 class blackbox;
 template <class T> class list;

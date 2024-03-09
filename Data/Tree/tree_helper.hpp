@@ -12,6 +12,7 @@
 #ifndef TREE_HELPER_H
 #define TREE_HELPER_H
 
+#include "iterator.hpp"
 #include "modification.hpp"
 #include "tree.hpp"
 #include "tree_label.hpp"

@@ -8,5 +8,3 @@
 #pragma once
 
 #include "observer.hpp"
-
-typedef lolly_tree<observer> tree;
