@@ -34,6 +34,12 @@ using lolly::data::operator*;
 typedef tree                     scheme_tree;
 typedef lolly_tree_rep<observer> tree_rep;
 
+inline tree
+operator<< (tree t, string s) {
+  t << tree (s);
+  return t;
+}
+
 inline int
 hash (tree t) {
   if (is_atomic<observer> (t)) return hash (t->label);

@@ -100,6 +100,14 @@ TEST_CASE ("test operator==") {
   CHECK (tree (2) == 2);
 }
 
+TEST_CASE ("tree operator<<") {
+  tree t= tree (123); // 123 can be a number > 1
+  t << "1"
+    << "2"
+    << "4";
+  CHECK (N (t) == 3);
+}
+
 TEST_CASE ("test inside") {
   CHECK (inside (tree (0))->op == 0);
   CHECK (inside (tree (0, tree (), tree ()))->op == 0);
