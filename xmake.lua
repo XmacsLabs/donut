@@ -23,7 +23,7 @@ local moe_includedirs = {
 
 add_repositories("moe-repo xmake")
 
-local LOLLY_VERSION= "1.4.2"
+local LOLLY_VERSION= "1.4.3"
 local DOCTEST_VERSION = "2.4.11"
 
 add_requires("lolly " .. LOLLY_VERSION)

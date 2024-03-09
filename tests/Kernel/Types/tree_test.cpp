@@ -54,17 +54,6 @@ TEST_CASE ("test_is_string") {
   CHECK (!is_string (tree (70, 3)));
 }
 
-TEST_CASE ("test_is_generic") {
-  CHECK (!is_generic (tree (9, 0)));
-  CHECK (!is_generic (tree (10, -1)));
-  CHECK (!is_generic (tree (11, 1234)));
-  CHECK (!is_generic (tree (11, 4)));
-  CHECK (!is_generic (tree (12, 2)));
-  CHECK (is_generic (tree (-1, 1)));
-  CHECK (is_generic (tree (-2, 1)));
-  CHECK (is_generic (tree (-3, 1)));
-}
-
 TEST_CASE ("test N()") {
   CHECK (N (tree ()) == 0);
   CHECK (N (tree (0, tree ())) == 1);

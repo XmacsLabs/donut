@@ -10,17 +10,7 @@
  ******************************************************************************/
 
 #include "modification.hpp"
-
-static inline int
-L (tree t) {
-  return (t->op);
-}
-
-static int
-L (modification mod) {
-  ASSERT (mod->k == MOD_ASSIGN_NODE, "assign_node modification expected");
-  return L (mod->t);
-}
+#include "tree_helper.hpp"
 
 /******************************************************************************
  * Equality and Output
