@@ -9,6 +9,7 @@
 
 #include "hashmap.hpp"
 #include "observer.hpp"
+#include "merge_sort.hpp"
 
 using lolly::data::A;
 using lolly::data::copy;

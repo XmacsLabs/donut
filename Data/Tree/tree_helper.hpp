@@ -40,12 +40,17 @@ as_tree (T x) {
 }
 template <>
 inline tree
-as_tree (int x) {
+as_tree (int16_t x) {
   return as_string (x);
 }
 template <>
 inline tree
-as_tree (long int x) {
+as_tree (int32_t x) {
+  return as_string (x);
+}
+template <>
+inline tree
+as_tree (int64_t x) {
   return as_string (x);
 }
 template <>
