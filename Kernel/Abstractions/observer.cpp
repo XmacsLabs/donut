@@ -28,7 +28,7 @@ operator<< (tm_ostream& out, observer o) {
 void
 touch (tree& ref) {
   // cout << "Touch " << ref << "\n";
-  if (!is_nil (ref->obs)) ref->obs->touched (ref, path ());
+  if (!is_nil (ref->data)) ref->data->touched (ref, path ());
 }
 
 /******************************************************************************
