@@ -15,6 +15,7 @@
 
 #include "list.hpp"
 #include "tree.hpp"
+
 typedef list<int> path;
 
 /******************************************************************************

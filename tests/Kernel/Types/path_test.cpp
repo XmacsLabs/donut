@@ -5,7 +5,7 @@ static const list<int> p1= list<int> ();
 static const list<int> p2= list<int> (1);
 static const list<int> p3= list<int> (1, 2);
 
-static list<int>
+static path
 gen_path (int n) {
   auto normal= list<int> ();
   for (int i= 0; i < n; i++)
@@ -26,10 +26,10 @@ TEST_CASE ("test hash") {
 }
 
 TEST_CASE ("test as_string") {
-  CHECK_EQ (as_string (p1), "");
-  CHECK_EQ (as_string (p2), "1");
-  CHECK_EQ (as_string (p3), "1.2");
-  CHECK_EQ (as_string (gen_path (4)), "0.1.2.3");
+  string_eq (as_string (p1), "");
+  string_eq (as_string (p2), "1");
+  string_eq (as_string (p3), "1.2");
+  string_eq (as_string (gen_path (4)), "0.1.2.3");
 }
 
 TEST_CASE ("test as_path") {

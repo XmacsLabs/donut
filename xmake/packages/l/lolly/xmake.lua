@@ -26,6 +26,10 @@ package("lolly")
     add_urls("https://gitee.com/XmacsLabs/lolly.git")
     add_versions("1.4.0", "v1.4.0")
     add_versions("1.4.1", "v1.4.1")
+    add_versions("1.4.2", "v1.4.2")
+    add_versions("1.4.3", "v1.4.3")
+    add_versions("1.4.4", "v1.4.4")
+    add_versions("1.4.5", "v1.4.5")
 
     add_deps("tbox")
     if not is_plat("wasm") then

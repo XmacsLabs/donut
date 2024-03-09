@@ -12,6 +12,7 @@
 #ifndef TREE_HELPER_H
 #define TREE_HELPER_H
 
+#include "iterator.hpp"
 #include "modification.hpp"
 #include "tree.hpp"
 #include "tree_label.hpp"
@@ -39,12 +40,17 @@ as_tree (T x) {
 }
 template <>
 inline tree
-as_tree (int x) {
+as_tree (int16_t x) {
   return as_string (x);
 }
 template <>
 inline tree
-as_tree (long int x) {
+as_tree (int32_t x) {
+  return as_string (x);
+}
+template <>
+inline tree
+as_tree (int64_t x) {
   return as_string (x);
 }
 template <>
