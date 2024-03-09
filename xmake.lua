@@ -50,6 +50,7 @@ end
 
 target("tests") do
     set_kind ("binary")
+    set_languages("c++17")
     set_default (false)
 
     add_deps("libmoebius")
@@ -64,7 +65,6 @@ target("tests") do
         add_tests(path.basename(testfile), {
             kind = "binary",
             files = testfile,
-            languages = "c++17",
             packages = "doctest",
             defines = "DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN"})
     end

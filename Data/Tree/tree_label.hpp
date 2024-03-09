@@ -11,6 +11,7 @@
 
 #ifndef TREE_LABEL_H
 #define TREE_LABEL_H
+
 #include "string.hpp"
 
 /******************************************************************************
@@ -425,6 +426,7 @@ inline tree_label
 SUB (bool right) {
   return right ? RSUB : LSUB;
 }
+
 inline tree_label
 SUP (bool right) {
   return right ? RSUP : LSUP;
