@@ -8,8 +8,8 @@
 #pragma once
 
 #include "hashmap.hpp"
-#include "observer.hpp"
 #include "merge_sort.hpp"
+#include "observer.hpp"
 
 using lolly::data::A;
 using lolly::data::copy;

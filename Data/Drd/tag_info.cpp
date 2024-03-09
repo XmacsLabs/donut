@@ -173,7 +173,7 @@ parent_info::parent_info (tree t) {
 
 parent_info::operator tree () {
   int64_t i     = 0;
-  int      offset= 0;
+  int     offset= 0;
   set_bits (type, 5);
   set_bits (arity_mode, 2);
   set_bits (arity_base, 6);
