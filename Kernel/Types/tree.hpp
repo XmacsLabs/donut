@@ -12,12 +12,24 @@
 #include "observer.hpp"
 
 using lolly::data::A;
+using lolly::data::AR;
+using lolly::data::arity;
+using lolly::data::as_double;
+using lolly::data::as_int;
+using lolly::data::as_long_int;
 using lolly::data::copy;
 using lolly::data::is_atomic;
+using lolly::data::is_bool;
 using lolly::data::is_compound;
+using lolly::data::is_double;
 using lolly::data::is_int;
 using lolly::data::lolly_tree_rep;
+using lolly::data::N;
+using lolly::data::to_string;
 using lolly::data::operator==;
+using lolly::data::operator!=;
+using lolly::data::operator<<;
+using lolly::data::operator*;
 
 typedef tree                     scheme_tree;
 typedef lolly_tree_rep<observer> tree_rep;
