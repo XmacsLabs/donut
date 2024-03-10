@@ -26,13 +26,33 @@ using lolly::data::is_int;
 using lolly::data::lolly_tree_rep;
 using lolly::data::N;
 using lolly::data::to_string;
-using lolly::data::operator==;
 using lolly::data::operator!=;
 using lolly::data::operator<<;
 using lolly::data::operator*;
+using lolly::data::destroy_tree_rep;
 
 typedef tree                     scheme_tree;
 typedef lolly_tree_rep<observer> tree_rep;
+
+inline bool
+operator== (tree t, int lab) {
+  return lolly::data::operator== (t, lab);
+}
+
+inline bool
+operator== (tree t, string s) {
+  return lolly::data::operator== (t, s);
+}
+
+inline bool
+operator== (tree t, const char* s) {
+  return lolly::data::operator== (t, s);
+}
+
+inline bool
+operator== (tree left, tree right) {
+  return lolly::data::operator== (left, right);
+}
 
 inline tree
 operator<< (tree t, string s) {
