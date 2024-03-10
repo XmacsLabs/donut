@@ -29,6 +29,7 @@ using lolly::data::to_string;
 using lolly::data::operator!=;
 using lolly::data::operator<<;
 using lolly::data::operator*;
+using lolly::data::destroy_tree_rep;
 
 typedef tree                     scheme_tree;
 typedef lolly_tree_rep<observer> tree_rep;
