@@ -101,8 +101,3 @@ make_collection (hashmap<T, U> h) {
     t[i]= a[i];
   return t;
 }
-
-template <> struct type_helper<tree> {
-  static int         id;
-  static inline tree init_val () { return tree (); }
-};
