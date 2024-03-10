@@ -86,6 +86,20 @@ as_tree (url x) {
   }
 }
 
+inline url_tree
+as_url_tree (tree t) {
+  if (is_atomic (t)) {
+    return url_tree (copy (t->label));
+  }
+  else {
+    int      n= N (t);
+    url_tree t2 (t->op, n);
+    for (int i= 0; i < n; i++)
+      t2[i]= as_url_tree (t[i]);
+    return t2;
+  }
+}
+
 template <class T>
 inline tree
 as_tree (list<T> x) {
