@@ -34,6 +34,11 @@ using lolly::data::operator*;
 typedef tree                     scheme_tree;
 typedef lolly_tree_rep<observer> tree_rep;
 
+inline bool
+operator== (tree left, tree right) {
+  return lolly::data::operator== (left, right);
+}
+
 inline tree
 operator<< (tree t, string s) {
   t << tree (s);

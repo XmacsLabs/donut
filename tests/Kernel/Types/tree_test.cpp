@@ -98,6 +98,8 @@ TEST_CASE ("test operator==") {
   CHECK (tree (0, 1, 2) != 1);
   CHECK (tree (0, 1, 2) != 2);
   CHECK (tree (2) == 2);
+  CHECK (tree ("hello") == tree ("hello"));
+  CHECK (tree (1, "a", "b", "c") == tree (1, "a", "b", "c"));
 }
 
 TEST_CASE ("tree operator<<") {
