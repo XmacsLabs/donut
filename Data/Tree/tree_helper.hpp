@@ -18,6 +18,10 @@
 #include "tree_label.hpp"
 #include "url.hpp"
 
+using moebius::ASSOCIATE;
+using moebius::COLLECTION;
+using moebius::TUPLE;
+
 inline tree_label
 L (tree t) {
   return static_cast<tree_label> (t->op);
@@ -105,7 +109,7 @@ inline tree
 as_tree (list<T> x) {
   list<T> l;
   int     i, n= N (x);
-  tree    t (moebius::TUPLE, n);
+  tree    t (TUPLE, n);
   for (i= 0, l= x; i < n; i++, l= l->next)
     t[i]= as_tree (l->item);
   return t;
@@ -115,7 +119,7 @@ template <class T>
 inline tree
 as_tree (array<T> x) {
   int  i, n= N (x);
-  tree t (moebius::TUPLE, n);
+  tree t (TUPLE, n);
   for (i= 0; i < n; i++)
     t[i]= as_tree (x[i]);
   return t;
@@ -124,7 +128,7 @@ as_tree (array<T> x) {
 template <class T>
 inline tree
 as_tree (iterator<T> x) {
-  tree t (moebius::TUPLE);
+  tree t (TUPLE);
   while (x->busy ()) {
     t << as_tree (x->next ());
   }
@@ -177,48 +181,48 @@ tree_hashmap (tree_label init, tree t) {
 
 inline tree
 tuple () {
-  return tree (moebius::TUPLE);
+  return tree (TUPLE);
 }
 inline tree
 tuple (tree t1) {
-  return tree (moebius::TUPLE, t1);
+  return tree (TUPLE, t1);
 }
 inline tree
 tuple (tree t1, tree t2) {
-  return tree (moebius::TUPLE, t1, t2);
+  return tree (TUPLE, t1, t2);
 }
 inline tree
 tuple (tree t1, tree t2, tree t3) {
-  return tree (moebius::TUPLE, t1, t2, t3);
+  return tree (TUPLE, t1, t2, t3);
 }
 inline tree
 tuple (tree t1, tree t2, tree t3, tree t4) {
-  return tree (moebius::TUPLE, t1, t2, t3, t4);
+  return tree (TUPLE, t1, t2, t3, t4);
 }
 inline tree
 tuple (tree t1, tree t2, tree t3, tree t4, tree t5) {
-  return tree (moebius::TUPLE, t1, t2, t3, t4, t5);
+  return tree (TUPLE, t1, t2, t3, t4, t5);
 }
 
 inline bool
 is_tuple (tree t) {
-  return (L (t) == moebius::TUPLE);
+  return (L (t) == TUPLE);
 }
 inline bool
 is_tuple (tree t, string s) {
-  return (L (t) == moebius::TUPLE) && (N (t) >= 1) && (t[0] == s);
+  return (L (t) == TUPLE) && (N (t) >= 1) && (t[0] == s);
 }
 inline bool
 is_tuple (tree t, const char* s) {
-  return (L (t) == moebius::TUPLE) && (N (t) >= 1) && (t[0] == s);
+  return (L (t) == TUPLE) && (N (t) >= 1) && (t[0] == s);
 }
 inline bool
 is_tuple (tree t, string s, int n) {
-  return (L (t) == moebius::TUPLE) && (N (t) == (n + 1)) && (t[0] == s);
+  return (L (t) == TUPLE) && (N (t) == (n + 1)) && (t[0] == s);
 }
 inline bool
 is_tuple (tree t, const char* s, int n) {
-  return (L (t) == moebius::TUPLE) && (N (t) == (n + 1)) && (t[0] == s);
+  return (L (t) == TUPLE) && (N (t) == (n + 1)) && (t[0] == s);
 }
 
 /******************************************************************************
