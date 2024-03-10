@@ -16,6 +16,7 @@
 #include "modification.hpp"
 #include "tree.hpp"
 #include "tree_label.hpp"
+#include "url.hpp"
 
 inline tree_label
 L (tree t) {
@@ -68,6 +69,21 @@ template <>
 inline tree
 as_tree (bool x) {
   return x ? tree ("true") : tree ("false");
+}
+
+template <>
+inline tree
+as_tree (url x) {
+  if (is_atomic (x->t)) {
+    return tree (copy (x->t->label));
+  }
+  else {
+    int  n= N (x->t);
+    tree t2 (x->t->op, n);
+    for (int i= 0; i < n; i++)
+      t2[i]= as_tree (x[i]);
+    return t2;
+  }
 }
 
 template <class T>
