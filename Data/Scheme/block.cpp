@@ -15,6 +15,8 @@
 #include "analyze.hpp"
 #include "tree_helper.hpp"
 
+using namespace moebius;
+
 /******************************************************************************
  * Handling escape characters
  ******************************************************************************/

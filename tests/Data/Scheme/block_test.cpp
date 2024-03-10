@@ -12,6 +12,8 @@
 #include "tm_ostream.hpp"
 #include "tree_helper.hpp"
 
+using namespace moebius;
+
 TEST_CASE ("block_to_scheme_tree") {
   CHECK_EQ (block_to_scheme_tree ("(scheme parser)"),
             tree (TUPLE, tree (TUPLE, "scheme", "parser")));
