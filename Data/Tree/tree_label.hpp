@@ -428,12 +428,12 @@ enum tree_label : int {
 
 using moebius::tree_label;
 
-inline moebius::tree_label
+inline tree_label
 SUB (bool right) {
   return right ? moebius::RSUB : moebius::LSUB;
 }
 
-inline moebius::tree_label
+inline tree_label
 SUP (bool right) {
   return right ? moebius::RSUP : moebius::LSUP;
 }
@@ -442,10 +442,10 @@ SUP (bool right) {
  * Conversions from tree_labels to strings and vice versa
  ******************************************************************************/
 
-void                make_tree_label (moebius::tree_label l, string s);
-moebius::tree_label make_tree_label (string s); // for extensions
-string              as_string (moebius::tree_label l);
-moebius::tree_label as_tree_label (string s);
-bool                existing_tree_label (string s);
+void       make_tree_label (tree_label l, string s);
+tree_label make_tree_label (string s); // for extensions
+string     as_string (tree_label l);
+tree_label as_tree_label (string s);
+bool       existing_tree_label (string s);
 
 #endif // defined TREE_LABEL_H
