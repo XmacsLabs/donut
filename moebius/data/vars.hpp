@@ -1,7 +1,7 @@
 
 /******************************************************************************
- * MODULE     : vars.cpp
- * DESCRIPTION: the environment variables
+ * MODULE     : vars.hpp
+ * DESCRIPTION: environment variables for typesetting
  * COPYRIGHT  : (C) 1999  Joris van der Hoeven
  *******************************************************************************
  * This software falls under the GNU general public license version 3 or later.
@@ -9,7 +9,10 @@
  * in the root directory or <http://www.gnu.org/licenses/gpl-3.0.html>.
  ******************************************************************************/
 
-#include "vars.hpp"
+#pragma once
+
+namespace moebius {
+namespace data {
 
 /******************************************************************************
  * Various important environment variables
@@ -379,3 +382,6 @@ string ORNAMENT_COLOR ("ornament-color");
 string ORNAMENT_EXTRA_COLOR ("ornament-extra-color");
 string ORNAMENT_SUNNY_COLOR ("ornament-sunny-color");
 string ORNAMENT_SHADOW_COLOR ("ornament-shadow-color");
+
+}
+}
