@@ -171,7 +171,7 @@ init_std_drd () {
             ->name (4, "top"));
   init (REPEAT, "repeat", fixed (1, 1, BIFORM)->accessible (0));
   init (VAR_REPEAT, "repeat*", fixed (1, 1, BIFORM)->accessible (0));
-  init (_FLOAT, "float", fixed (2, 1, BIFORM)->accessible (1));
+  init (FLOAT, "float", fixed (2, 1, BIFORM)->accessible (1));
   init (DATOMS, "datoms",
         var_repeat (1, 1, BIFORM)->accessible (1)->name ("decorate atoms"));
   // arbitrary number of macros and decorated content
@@ -417,7 +417,7 @@ init_std_drd () {
   init (LENGTH, "length", fixed (1)->returns_integer ());
   init (RANGE, "range", fixed (1, 2, BIFORM)->returns_adhoc ()->accessible (0));
   init (NUMBER, "number", fixed (2)->returns_string ()->string_type (0));
-  init (_DATE, "date", options (0, 2)->returns_string ()->string_type (0));
+  init (DATE, "date", options (0, 2)->returns_string ()->string_type (0));
   init (TRANSLATE, "translate", fixed (3)->returns_string ()->string_type (0));
   init (CHANGE_CASE, "change-case",
         fixed (1, 1, BIFORM)->accessible (0)->string_type (1));
@@ -728,7 +728,7 @@ init_std_drd () {
             ->accessible (0)
             ->regular (0)
             ->point_type (1));
-  init (_POINT, "point", repeat (1, 1)->returns_graphical ()->point_type (0));
+  init (POINT, "point", repeat (1, 1)->returns_graphical ()->point_type (0));
   init (LINE, "line", repeat (2, 1)->returns_graphical ()->point_type (0));
   init (CLINE, "cline", repeat (3, 1)->returns_graphical ()->point_type (0));
   init (ARC, "arc", fixed (3)->returns_graphical ()->point_type (0));
