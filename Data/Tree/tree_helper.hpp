@@ -20,12 +20,13 @@
 
 using moebius::ASSOCIATE;
 using moebius::COLLECTION;
+using moebius::to_string;
 using moebius::tree_label;
 using moebius::TUPLE;
 
 inline string
 as_string (tree_label l) {
-  return moebius::to_string (l);
+  return to_string (l);
 }
 
 inline tree_label
