@@ -15,10 +15,6 @@
 
 using namespace moebius;
 
-drd_info             std_drd ("tm");
-drd_info             the_drd= std_drd;
-hashmap<string, int> STD_CODE (UNKNOWN);
-
 #define BIFORM CHILD_BIFORM
 #define DETAILED CHILD_DETAILED
 
@@ -60,6 +56,13 @@ hashmap<string, int> STD_CODE (UNKNOWN);
 #define returns_graphical() type (TYPE_GRAPHICAL)
 #define returns_constraint() type (TYPE_CONSTRAINT)
 #define returns_effect() type (TYPE_EFFECT)
+
+namespace moebius {
+namespace drd {
+
+drd_info             std_drd ("tm");
+drd_info             the_drd= std_drd;
+hashmap<string, int> STD_CODE (UNKNOWN);
 
 static tag_info
 fixed (int arity, int extra= 0, int child_mode= CHILD_UNIFORM) {
@@ -1477,3 +1480,6 @@ init_std_drd () {
   init_var (ORNAMENT_SUNNY_COLOR, TYPE_COLOR);
   init_var (ORNAMENT_SHADOW_COLOR, TYPE_COLOR);
 }
+
+} // namespace drd
+} // namespace moebius

@@ -23,6 +23,11 @@ using moebius::COLLECTION;
 using moebius::tree_label;
 using moebius::TUPLE;
 
+inline string
+as_string (tree_label l) {
+  return moebius::to_string (l);
+}
+
 inline tree_label
 L (tree t) {
   return static_cast<tree_label> (t->op);
