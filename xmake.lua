@@ -11,7 +11,7 @@ local moe_files = {
     "Data/Tree/**.cpp",
     "Kernel/Types/**.cpp",
     "Kernel/Abstractions/**.cpp",
-    "moebius/data/**.cpp",
+    "moebius/**.cpp",
 }
 local moe_includedirs = {
     "Data/Drd",

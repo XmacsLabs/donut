@@ -14,8 +14,8 @@
 #include "drd_mode.hpp"
 #include "drd_std.hpp"
 #include "iterator.hpp"
-#include "tree_helper.hpp"
 #include "moebius/vars.hpp"
+#include "tree_helper.hpp"
 
 using namespace moebius;
 
