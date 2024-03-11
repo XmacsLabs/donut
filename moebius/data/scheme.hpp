@@ -14,6 +14,10 @@
 namespace moebius {
 namespace data {
 
+/******************************************************************************
+ * Scheme format deserialization
+ ******************************************************************************/
+
 /**
  * @brief parse string as scheme tree
  *
@@ -35,7 +39,7 @@ tree scheme_tree_to_tree (scheme_tree t, hashmap<string, int> codes, bool flag);
 tree scheme_tree_to_tree (scheme_tree t);
 
 /**
- * @brief convert scheme tree to tree
+ * @brief convert scheme tree to TeXmacs tree
  *
  * @param t
  * @param version
@@ -43,18 +47,28 @@ tree scheme_tree_to_tree (scheme_tree t);
  */
 tree scheme_tree_to_tree (scheme_tree t, string version);
 
+/**
+ * @brief parse string as TeXmacs tree
+ *
+ * @param s
+ * @return tree
+ */
 tree scheme_to_tree (string s);
 
 /**
- * @brief convert scheme document (.stm) to tree
+ * @brief Convert scheme document (.stm) to TeXmacs tree
  *
  * @param s
  * @return tree
  */
 tree scheme_document_to_tree (string s);
 
+/******************************************************************************
+ * Scheme format serialization
+ ******************************************************************************/
+
 /**
- * @brief serialize scheme tree to string
+ * @brief Serialize scheme tree to string
  *
  * @param t
  * @return string
@@ -62,15 +76,27 @@ tree scheme_document_to_tree (string s);
 string scheme_tree_to_string (scheme_tree t);
 
 /**
- * @brief serialize scheme tree to block
+ * @brief Serialize scheme tree to block
  *
  * @param t
  * @return string
  */
 string scheme_tree_to_block (scheme_tree t);
 
+/**
+ * @brief Convert TeXmacs tree to scheme tree
+ *
+ * @param t
+ * @return scheme_tree
+ */
 scheme_tree tree_to_scheme_tree (tree t);
 
+/**
+ * @brief Convert TeXmacs tree to scheme string
+ *
+ * @param t
+ * @return string
+ */
 string tree_to_scheme (tree t);
 
 } // namespace data

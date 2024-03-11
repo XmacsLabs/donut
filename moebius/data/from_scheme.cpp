@@ -57,10 +57,6 @@ unslash (string& s, int i, int end_index, string& r, int& r_index) {
   }
 }
 
-/******************************************************************************
- * Converting strings to scheme trees
- ******************************************************************************/
-
 static bool
 is_spc (char c) {
   return (c == ' ') || (c == '\t') || (c == '\n');
