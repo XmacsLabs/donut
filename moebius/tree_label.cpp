@@ -42,7 +42,7 @@ make_tree_label (string s) {
  ******************************************************************************/
 
 string
-as_string (tree_label l) {
+to_string (tree_label l) {
   return CONSTRUCTOR_NAME[(int) l];
 }
 
