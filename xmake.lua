@@ -7,12 +7,14 @@ set_project("moebius")
 MOEBIUS_VERSION= "0.1"
 
 local moe_files = {
+    "Data/String/**.cpp",
     "Data/Tree/**.cpp",
     "Kernel/Types/**.cpp",
     "Kernel/Abstractions/**.cpp",
     "moebius/**.cpp",
 }
 local moe_includedirs = {
+    "Data/String",
     "Data/Tree",
     "Kernel/Types",
     "Kernel/Abstractions",
@@ -38,6 +40,7 @@ target("libmoebius") do
 
     add_packages("lolly")
 
+    add_headerfiles("Data/String/(*.hpp)")
     add_headerfiles("Data/Tree/(*.hpp)")
     add_headerfiles("Kernel/Types/(*.hpp)")
     add_headerfiles("Kernel/Abstractions/(*.hpp)")
