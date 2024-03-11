@@ -10,8 +10,8 @@
  ******************************************************************************/
 
 #include "analyze.hpp"
-#include "drd_std.hpp"
 #include "moebius/data/scheme.hpp"
+#include "moebius/drd/drd_std.hpp"
 #include "path.hpp"
 #include "tree_helper.hpp"
 
@@ -199,7 +199,7 @@ scheme_tree_to_tree (scheme_tree t, hashmap<string, int> codes, bool flag) {
 
 tree
 scheme_tree_to_tree (scheme_tree t) {
-  return scheme_tree_to_tree (t, STD_CODE, true);
+  return scheme_tree_to_tree (t, drd::STD_CODE, true);
 }
 
 tree
