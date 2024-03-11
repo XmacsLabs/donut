@@ -10,8 +10,8 @@
  ******************************************************************************/
 
 #include "drd_std.hpp"
-#include "tree_label.hpp"
-#include "vars.hpp"
+#include "moebius/tree_label.hpp"
+#include "moebius/vars.hpp"
 
 using namespace moebius;
 

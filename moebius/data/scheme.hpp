@@ -11,6 +11,8 @@
 
 #include "tree.hpp"
 
+#pragma once
+
 namespace moebius {
 namespace data {
 

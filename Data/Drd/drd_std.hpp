@@ -11,6 +11,7 @@
 
 #ifndef DRD_STD_H
 #define DRD_STD_H
+
 #include "drd_info.hpp"
 
 extern drd_info             std_drd;

@@ -11,7 +11,7 @@ local moe_files = {
     "Data/Tree/**.cpp",
     "Kernel/Types/**.cpp",
     "Kernel/Abstractions/**.cpp",
-    "moebius/data/**.cpp",
+    "moebius/**.cpp",
 }
 local moe_includedirs = {
     "Data/Drd",
@@ -45,6 +45,7 @@ target("libmoebius") do
     add_headerfiles("Kernel/Types/(*.hpp)")
     add_headerfiles("Kernel/Abstractions/(*.hpp)")
     add_headerfiles("moebius/(data/*.hpp)", {prefixdir="moebius"})
+    add_headerfiles("moebius/(*.hpp)", {prefixdir="moebius"})
 end
 
 target("tests") do
