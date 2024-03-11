@@ -12,12 +12,13 @@
 #ifndef DRD_INFO_H
 #define DRD_INFO_H
 
+#include "moebius/tree_label.hpp"
 #include "path.hpp"
 #include "rel_hashmap.hpp"
 #include "tag_info.hpp"
 #include "tree.hpp"
-#include "tree_label.hpp"
 
+using moebius::tree_label;
 using moebius::UNINIT;
 
 class drd_info;
