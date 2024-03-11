@@ -15,7 +15,7 @@
 #include "drd_std.hpp"
 #include "iterator.hpp"
 #include "tree_helper.hpp"
-#include "vars.hpp"
+#include "moebius/vars.hpp"
 
 using namespace moebius;
 

@@ -12,7 +12,6 @@
 #pragma once
 
 namespace moebius {
-namespace data {
 
 /******************************************************************************
  * Various important environment variables
@@ -383,5 +382,4 @@ string ORNAMENT_EXTRA_COLOR ("ornament-extra-color");
 string ORNAMENT_SUNNY_COLOR ("ornament-sunny-color");
 string ORNAMENT_SHADOW_COLOR ("ornament-shadow-color");
 
-} // namespace data
 } // namespace moebius
