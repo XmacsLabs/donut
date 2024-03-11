@@ -30,6 +30,29 @@ scheme_tree string_to_scheme_tree (string s);
  */
 scheme_tree block_to_scheme_tree (string s);
 
+tree scheme_tree_to_tree (scheme_tree t, hashmap<string, int> codes, bool flag);
+
+tree scheme_tree_to_tree (scheme_tree t);
+
+/**
+ * @brief convert scheme tree to tree
+ *
+ * @param t
+ * @param version
+ * @return tree
+ */
+tree scheme_tree_to_tree (scheme_tree t, string version);
+
+tree scheme_to_tree (string s);
+
+/**
+ * @brief convert scheme document (.stm) to tree
+ *
+ * @param s
+ * @return tree
+ */
+tree scheme_document_to_tree (string s);
+
 /**
  * @brief serialize scheme tree to string
  *
@@ -46,31 +69,9 @@ string scheme_tree_to_string (scheme_tree t);
  */
 string scheme_tree_to_block (scheme_tree t);
 
-tree scheme_tree_to_tree (scheme_tree t, hashmap<string, int> codes, bool flag);
-
-tree scheme_tree_to_tree (scheme_tree t);
-
-/**
- * @brief convert scheme tree to tree
- *
- * @param t
- * @param version
- * @return tree
- */
-tree scheme_tree_to_tree (scheme_tree t, string version);
-
 scheme_tree tree_to_scheme_tree (tree t);
-
-tree scheme_to_tree (string s);
 
 string tree_to_scheme (tree t);
 
-/**
- * @brief convert scheme document (.stm) to tree
- *
- * @param s
- * @return tree
- */
-tree scheme_document_to_tree (string s);
 } // namespace data
 } // namespace moebius
