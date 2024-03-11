@@ -8,17 +8,17 @@ MOEBIUS_VERSION= "0.1.0"
 
 local moe_files = {
     "Data/Drd/**.cpp",
-    "Data/Scheme/**.cpp",
     "Data/Tree/**.cpp",
     "Kernel/Types/**.cpp",
     "Kernel/Abstractions/**.cpp",
+    "moebius/data/**.cpp",
 }
 local moe_includedirs = {
     "Data/Drd",
-    "Data/Scheme",
     "Data/Tree",
     "Kernel/Types",
     "Kernel/Abstractions",
+    "$(projectdir)",
 }
 
 add_repositories("moe-repo xmake")
@@ -41,10 +41,10 @@ target("libmoebius") do
     add_packages("lolly")
 
     add_headerfiles("Data/Drd/(*.hpp)")
-    add_headerfiles("Data/Scheme/(*.hpp)")
     add_headerfiles("Data/Tree/(*.hpp)")
     add_headerfiles("Kernel/Types/(*.hpp)")
     add_headerfiles("Kernel/Abstractions/(*.hpp)")
+    add_headerfiles("moebius/(data/*.hpp)", {prefixdir="moebius"})
 end
 
 target("tests") do
