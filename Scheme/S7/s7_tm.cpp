@@ -246,25 +246,6 @@ tmscm object_stack;
 
 int
 initialize_scheme () {
-  const char* init_prg= "(begin \n"
-//  "(read-set! keywords 'prefix)\n"
-//  "(read-enable 'positions)\n"
-//  "(debug-enable 'debug)\n"
-#ifdef DEBUG_ON
-//  "(debug-enable 'backtrace)\n"
-#endif
-                        //  "\n"
-                        "(define (display-to-string obj)\n"
-                        "  (call-with-output-string\n"
-                        "    (lambda (port) (display obj port))))\n"
-                        "\n"
-                        "(define (texmacs-version) \"" TEXMACS_VERSION "\")\n"
-                        "(define (xmacs-version) \"" XMACS_VERSION "\")\n"
-                        "(define object-stack '(()))\n"
-                        ")";
-
-  // eval in the root enviornment
-  s7_eval_c_string (tm_s7, init_prg);
   initialize_compat ();
   blackbox_tag= s7_make_c_type (tm_s7, "blackbox");
   object_stack= s7_name_to_value (tm_s7, "object-stack");
