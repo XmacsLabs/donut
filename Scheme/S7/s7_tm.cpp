@@ -10,6 +10,7 @@
  ******************************************************************************/
 
 #include "s7_tm.hpp"
+#include "basic.hpp"
 #include "blackbox.hpp"
 #include "file.hpp"
 #include "object_l1.hpp"
