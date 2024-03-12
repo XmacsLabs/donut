@@ -16,7 +16,7 @@
 #include "object_l2.hpp"
 #include "tm_timer.hpp"
 
-#ifdef OS_WIN
+#if defined(_WIN32) || defined(_WIN64)
 #include <process.h>
 #else
 #include <unistd.h> // for getpid
