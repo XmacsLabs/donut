@@ -13,6 +13,7 @@
 #include "hashmap.hpp"
 #include "string.hpp"
 #include "tree_helper.hpp"
+#include "tree.hpp"
 
 using namespace moebius;
 

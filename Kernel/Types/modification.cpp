@@ -366,8 +366,8 @@ clean_split (tree t, path p) {
     int  i, n1= p->next->item, n2= N (u) - n1;
     tree s1, s2;
     if (is_atomic (u)) {
-      s1= u->label (0, n1);
-      s2= u->label (n1, N (u->label));
+      s1= tree (u->label (0, n1));
+      s2= tree (u->label (n1, N (u->label)));
     }
     else {
       s1= tree (u, n1);

@@ -181,10 +181,8 @@ string_to_tmscm (string s) {
 
 string
 tmscm_to_string (tmscm s) {
-  s7_int      len_r= s7_string_length (s);
   const char* _r   = s7_string (s);
-  string      r (_r, len_r);
-  return r;
+  return as_string (_r);
 }
 
 /******************************************************************************
@@ -201,8 +199,7 @@ symbol_to_tmscm (string s) {
 string
 tmscm_to_symbol (tmscm s) {
   const char* _r= s7_symbol_name (s);
-  string      r (_r);
-  return r;
+  return as_string (_r);
 }
 
 /******************************************************************************

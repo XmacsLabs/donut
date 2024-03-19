@@ -45,7 +45,7 @@ operator== (tree t, string s) {
 
 inline bool
 operator== (tree t, const char* s) {
-  return lolly::data::operator== (t, s);
+  return lolly::data::operator== (t, as_string (s));
 }
 
 inline bool
