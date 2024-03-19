@@ -426,28 +426,30 @@ call (const char* fun) {
 object
 call (const char* fun, object a1) {
   return tmscm_to_object (
-      call_scheme (eval_scheme (fun), object_to_tmscm (a1)));
+      call_scheme (eval_scheme (as_string (fun)), object_to_tmscm (a1)));
 }
 object
 call (const char* fun, object a1, object a2) {
-  return tmscm_to_object (call_scheme (eval_scheme (fun), object_to_tmscm (a1),
+  return tmscm_to_object (call_scheme (eval_scheme (as_string (fun)),
+                                       object_to_tmscm (a1),
                                        object_to_tmscm (a2)));
 }
 object
 call (const char* fun, object a1, object a2, object a3) {
-  return tmscm_to_object (call_scheme (eval_scheme (fun), object_to_tmscm (a1),
-                                       object_to_tmscm (a2),
-                                       object_to_tmscm (a3)));
+  return tmscm_to_object (
+      call_scheme (eval_scheme (as_string (fun)), object_to_tmscm (a1),
+                   object_to_tmscm (a2), object_to_tmscm (a3)));
 }
 object
 call (const char* fun, object a1, object a2, object a3, object a4) {
   return tmscm_to_object (call_scheme (
-      eval_scheme (fun), object_to_tmscm (a1), object_to_tmscm (a2),
+      eval_scheme (as_string (fun)), object_to_tmscm (a1), object_to_tmscm (a2),
       object_to_tmscm (a3), object_to_tmscm (a4)));
 }
 object
 call (const char* fun, array<object> a) {
-  return tmscm_to_object (call_scheme (eval_scheme (fun), array_lookup (a)));
+  return tmscm_to_object (
+      call_scheme (eval_scheme (as_string (fun)), array_lookup (a)));
 }
 
 object
