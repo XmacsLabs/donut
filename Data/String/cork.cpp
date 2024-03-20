@@ -177,7 +177,7 @@ tm_tokenize (string s) {
   while (pos < N (s)) {
     int start= pos;
     tm_char_forwards (s, pos);
-    r << s (start, pos);
+    r << string (s (start, pos));
   }
   return r;
 }
@@ -230,7 +230,9 @@ tm_string_split_between_words (string s) {
     }
     tm_char_forwards (s, i);
   }
-  if (j > 0 && j < n) r << s (0, j) << s (j, n);
+  if (j > 0 && j < n) {
+    r << string (s (0, j)) << string (s (j, n));
+  }
   else r << s;
   return r;
 }
@@ -245,8 +247,12 @@ tm_string_split_at_spaces (string s) {
     j= i++;
   }
   if (j < 1 || j >= n) r << s;
-  else if (j == n - 1) r << s (0, j) << s (j, n);
-  else r << s (0, j) << s (j, j + 1) << s (j + 1, n);
+  else if (j == n - 1) {
+    r << string (s (0, j)) << string (s (j, n));
+  }
+  else {
+    r << string (s (0, j)) << string (s (j, j + 1)) << string (s (j + 1, n));
+  }
   return r;
 }
 
