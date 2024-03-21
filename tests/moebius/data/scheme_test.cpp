@@ -40,10 +40,11 @@ TEST_CASE ("block_to_scheme_tree") {
             tree (TUPLE, tree (TUPLE, "scheme", "parser")));
   CHECK_EQ (block_to_scheme_tree ("(scheme 'parser)"),
             tree (TUPLE, tree (TUPLE, "scheme", tree (TUPLE, "'", "parser"))));
-  CHECK_EQ (block_to_scheme_tree (
-                "(scheme \"slashed \\r\\\\ characters \\n\\t\" \"\\0\")"),
-            tree (TUPLE, tree (TUPLE, "scheme",
-                               "\"slashed r\\ characters \n\t\"", "\"\0\"")));
+  CHECK_EQ (
+      block_to_scheme_tree (
+          "(scheme \"slashed \\r\\\\ characters \\n\\t\" \"\\0\")"),
+      tree (TUPLE, tree (TUPLE, "scheme", "\"slashed r\\ characters \n\t\"",
+                         string ("\"\0\"", 3))));
   CHECK_EQ (block_to_scheme_tree ("scheme parser"),
             tree (TUPLE, "scheme", "parser"));
   CHECK_EQ (block_to_scheme_tree ("(scheme (parser combinator))"),
@@ -71,10 +72,10 @@ TEST_CASE ("string_to_scheme_tree") {
             tree (TUPLE, "scheme", "parser"));
   CHECK_EQ (string_to_scheme_tree ("(scheme 'parser)"),
             tree (TUPLE, "scheme", tree (TUPLE, "'", "parser")));
-  CHECK_EQ (
-      string_to_scheme_tree (
-          "(scheme \"slashed \\r\\\\ characters \\n\\t\" \"\\0\")"),
-      tree (TUPLE, "scheme", "\"slashed r\\ characters \n\t\"", "\"\0\""));
+  CHECK_EQ (string_to_scheme_tree (
+                "(scheme \"slashed \\r\\\\ characters \\n\\t\" \"\\0\")"),
+            tree (TUPLE, "scheme", "\"slashed r\\ characters \n\t\"",
+                  string ("\"\0\"", 3)));
   CHECK_EQ (string_to_scheme_tree ("scheme parser"), tree ("scheme"));
   CHECK_EQ (string_to_scheme_tree ("(scheme (parser combinator))"),
             tree (TUPLE, "scheme", tree (TUPLE, "parser", "combinator")));
@@ -93,9 +94,10 @@ TEST_CASE ("scheme_tree_to_string") {
   string_eq ("(scheme 'parser)",
              scheme_tree_to_string (
                  tree (TUPLE, "scheme", tree (TUPLE, "'", "parser"))));
-  string_eq ("(scheme \"slashed \\\\ characters \n\t\" \"\0\")",
-             scheme_tree_to_string (tree (
-                 TUPLE, "scheme", "\"slashed \\ characters \n\t\"", "\"\0\"")));
+  string_eq (string ("(scheme \"slashed \\\\ characters \n\t\" \"\0\")", 39),
+             scheme_tree_to_string (tree (TUPLE, "scheme",
+                                          "\"slashed \\ characters \n\t\"",
+                                          string ("\"\0\"", 3))));
   string_eq ("scheme", scheme_tree_to_string (tree ("scheme")));
   string_eq ("(scheme (parser combinator))",
              scheme_tree_to_string (
@@ -113,10 +115,10 @@ TEST_CASE ("scheme_tree_to_block") {
   string_eq ("(scheme 'parser)\n",
              scheme_tree_to_block (tree (
                  TUPLE, tree (TUPLE, "scheme", tree (TUPLE, "'", "parser")))));
-  string_eq ("(scheme \"slashed \\\\ characters \n\t\" \"\0\")\n",
+  string_eq (string ("(scheme \"slashed \\\\ characters \n\t\" \"\0\")\n", 40),
              scheme_tree_to_block (tree (
                  TUPLE, tree (TUPLE, "scheme", "\"slashed \\ characters \n\t\"",
-                              "\"\0\""))));
+                              string ("\"\0\"", 3)))));
   string_eq ("scheme\nparser\n", scheme_tree_to_block (tree (
                                      TUPLE, tree ("scheme"), tree ("parser"))));
   string_eq ("(scheme (parser combinator))\n",

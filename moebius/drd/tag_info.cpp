@@ -12,7 +12,6 @@
 #include "moebius/drd/tag_info.hpp"
 #include "hashmap.hpp"
 #include "string.hpp"
-#include "tree.hpp"
 #include "tree_helper.hpp"
 
 using namespace moebius;

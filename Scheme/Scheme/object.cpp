@@ -202,7 +202,7 @@ object::object (int i) : rep (tm_new<tmscm_object_rep> (int_to_tmscm (i))) {}
 object::object (double x)
     : rep (tm_new<tmscm_object_rep> (double_to_tmscm (x))) {}
 object::object (const char* s)
-    : rep (tm_new<tmscm_object_rep> (string_to_tmscm (as_string (s)))) {}
+    : rep (tm_new<tmscm_object_rep> (string_to_tmscm (string (s)))) {}
 object::object (string s)
     : rep (tm_new<tmscm_object_rep> (string_to_tmscm (s))) {}
 object::object (tree t) : rep (tm_new<tmscm_object_rep> (tree_to_tmscm (t))) {}
@@ -341,7 +341,7 @@ object_to_string (object obj) {
 
 object
 scheme_cmd (const char* s) {
-  return eval ("(lambda () " * as_string (s) * ")");
+  return eval ("(lambda () " * string (s) * ")");
 }
 
 object
@@ -395,7 +395,7 @@ as_command (object obj) {
 
 object
 eval (const char* expr) {
-  return tmscm_to_object (eval_scheme (as_string (expr)));
+  return tmscm_to_object (eval_scheme (expr));
 }
 object
 eval (string expr) {
@@ -421,35 +421,33 @@ exec_file (url u) {
 
 object
 call (const char* fun) {
-  return tmscm_to_object (call_scheme (eval_scheme (as_string (fun))));
+  return tmscm_to_object (call_scheme (eval_scheme (fun)));
 }
 object
 call (const char* fun, object a1) {
   return tmscm_to_object (
-      call_scheme (eval_scheme (as_string (fun)), object_to_tmscm (a1)));
+      call_scheme (eval_scheme (fun), object_to_tmscm (a1)));
 }
 object
 call (const char* fun, object a1, object a2) {
-  return tmscm_to_object (call_scheme (eval_scheme (as_string (fun)),
-                                       object_to_tmscm (a1),
+  return tmscm_to_object (call_scheme (eval_scheme (fun), object_to_tmscm (a1),
                                        object_to_tmscm (a2)));
 }
 object
 call (const char* fun, object a1, object a2, object a3) {
-  return tmscm_to_object (
-      call_scheme (eval_scheme (as_string (fun)), object_to_tmscm (a1),
-                   object_to_tmscm (a2), object_to_tmscm (a3)));
+  return tmscm_to_object (call_scheme (eval_scheme (fun), object_to_tmscm (a1),
+                                       object_to_tmscm (a2),
+                                       object_to_tmscm (a3)));
 }
 object
 call (const char* fun, object a1, object a2, object a3, object a4) {
   return tmscm_to_object (call_scheme (
-      eval_scheme (as_string (fun)), object_to_tmscm (a1), object_to_tmscm (a2),
+      eval_scheme (fun), object_to_tmscm (a1), object_to_tmscm (a2),
       object_to_tmscm (a3), object_to_tmscm (a4)));
 }
 object
 call (const char* fun, array<object> a) {
-  return tmscm_to_object (
-      call_scheme (eval_scheme (as_string (fun)), array_lookup (a)));
+  return tmscm_to_object (call_scheme (eval_scheme (fun), array_lookup (a)));
 }
 
 object
