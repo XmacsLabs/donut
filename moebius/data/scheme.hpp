@@ -13,6 +13,8 @@
 
 #pragma once
 
+typedef tree scheme_tree;
+
 namespace moebius {
 namespace data {
 
