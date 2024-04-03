@@ -31,7 +31,9 @@ using lolly::data::operator<<;
 using lolly::data::operator*;
 
 // tree_u8 is an alias for tree with UTF-8 string label
-typedef tree                     tree_u8;
+typedef tree tree_u8;
+typedef tree scheme_tree;
+
 typedef lolly_tree_rep<observer> tree_rep;
 
 inline bool
