@@ -20,3 +20,9 @@ TEST_CASE ("tm_encode") {
   string_eq (tm_encode ("abc"), "abc");
   string_eq (tm_encode (""), "");
 }
+
+TEST_CASE ("tm_length") {
+  string_eq (tm_string_length (""), 0);
+  string_eq (tm_string_length ("<#ABCD>"), 1);
+  string_eq (tm_string_length ("<less>1"), 2);
+}
