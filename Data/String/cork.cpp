@@ -29,12 +29,11 @@ contains_unicode_char (string s) {
 string
 tm_encode (string s) {
   // verbatim to TeXmacs encoding
-  int    i;
   string r;
-  for (i= 0; i < N (s); i++) {
-    if (s[i] == '<') r << "<less>";
-    else if (s[i] == '>') r << "<gtr>";
-    else r << s[i];
+  for (const auto ch : s) {
+    if (ch == '<') r << "<less>";
+    else if (ch == '>') r << "<gtr>";
+    else r << ch;
   }
   return r;
 }
