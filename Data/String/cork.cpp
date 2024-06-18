@@ -161,8 +161,8 @@ tm_backward_access (string s, int k) {
 
 int
 tm_string_length (string s) {
-  int i= 0, pos= 0;
-  while (pos < N (s)) {
+  int i= 0, pos= 0, s_N= N (s);
+  while (pos < s_N) {
     tm_char_forwards (s, pos);
     i++;
   }
@@ -172,8 +172,8 @@ tm_string_length (string s) {
 array<string>
 tm_tokenize (string s) {
   array<string> r;
-  int           pos= 0;
-  while (pos < N (s)) {
+  int           pos= 0, s_N= N (s);
+  while (pos < s_N) {
     int start= pos;
     tm_char_forwards (s, pos);
     r << s (start, pos);
@@ -184,7 +184,8 @@ tm_tokenize (string s) {
 string
 tm_recompose (array<string> a) {
   string r;
-  for (int i= 0; i < N (a); i++)
+  int    a_N= N (a);
+  for (int i= 0; i < a_N; i++)
     r << a[i];
   return r;
 }
