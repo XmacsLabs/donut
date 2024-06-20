@@ -61,7 +61,7 @@ string
 tm_decode (string s) {
   // TeXmacs encoding to verbatim
   string r;
-  int s_N= N(s);
+  int    s_N= N (s);
   for (int i= 0; i < s_N; i++) {
     if (s[i] == '<') {
       int j;
