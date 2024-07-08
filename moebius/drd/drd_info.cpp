@@ -762,7 +762,7 @@ drd_info_rep::get_env_child (tree t, int i, tree env) {
 
     tag_info ti   = info[L (t)];
     int      index= ti->get_index (i, N (t));
-    if ((index < 0) || (index >= N (ti->ci))) return "";
+    if ((index < 0) || (index >= N (ti->ci))) return tree (ATTR);
     tree cenv= drd_decode (ti->ci[index].env);
     for (int i= 1; i < N (cenv); i+= 2)
       if (is_func (cenv[i], ARG, 1) && is_int (cenv[i][0])) {
@@ -787,7 +787,7 @@ drd_info_rep::get_env_descendant (tree t, path p, tree env) {
   path q= p->next;
   if (is_compound (t) && i >= 0 && i < N (t))
     return get_env_descendant (t[i], q, get_env_child (t, i, env));
-  return "";
+  return tree (ATTR);
 }
 
 tree
@@ -813,7 +813,7 @@ tree
 drd_info_rep::arg_access (tree t, tree arg, tree env, int& type, bool& found) {
   // returns "" if unaccessible and the env if accessible
   // cout << "  arg_access " << t << ", " << arg << ", " << env << "\n";
-  if (is_atomic (t)) return "";
+  if (is_atomic (t)) return tree (ATTR);
   else if (t == arg) {
     found= true;
     return env;
@@ -822,9 +822,9 @@ drd_info_rep::arg_access (tree t, tree arg, tree env, int& type, bool& found) {
     return env;
   else if (is_func (t, MAP_ARGS) && (t[2] == arg[0])) {
     if ((N (t) >= 4) && (N (arg) >= 2) && (as_int (t[3]) > as_int (arg[1])))
-      return "";
+      return tree (ATTR);
     if ((N (t) == 5) && (N (arg) >= 2) && (as_int (t[3]) <= as_int (arg[1])))
-      return "";
+      return tree (ATTR);
     tree_label inner= make_tree_label (as_string (t[0]));
     tree_label outer= make_tree_label (as_string (t[1]));
     if (get_nr_indices (inner) > 0) type= get_type_child (tree (inner, arg), 0);
@@ -832,9 +832,9 @@ drd_info_rep::arg_access (tree t, tree arg, tree env, int& type, bool& found) {
         (get_accessible (inner, 0) == ACCESSIBLE_ALWAYS) &&
         all_accessible (outer))
       return env;
-    return "";
+    return tree (ATTR);
   }
-  else if (is_func (t, MACRO)) return "";
+  else if (is_func (t, MACRO)) return tree (ATTR);
   else if (is_func (t, WITH)) {
     int n= N (t) - 1;
     // cout << "env= " << drd_env_merge (env, t (0, n)) << "\n";
@@ -876,7 +876,7 @@ drd_info_rep::arg_access (tree t, tree arg, tree env, int& type, bool& found) {
         // cout << "  found type " << t << ", " << arg << ", " << type << "\n";
       }
     }
-    return "";
+    return tree (ATTR);
   }
 }
 
