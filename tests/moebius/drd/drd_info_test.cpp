@@ -6,7 +6,7 @@
  */
 
 #include "moe_doctests.hpp"
-#include "moebius\drd\drd_info.hpp"
+#include "moebius/drd/drd_info.hpp"
 #include "tree_helper.hpp"
 
 using namespace moebius;
