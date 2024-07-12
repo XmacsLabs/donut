@@ -1,5 +1,6 @@
 #include "moe_doctests.hpp"
 #include "tree.hpp"
+const int label= 123; // 123 can be a number != 0, thus the tree is compound.
 
 TEST_CASE ("test_is_atomic") {
   CHECK (is_atomic (tree ()));
@@ -55,10 +56,13 @@ TEST_CASE ("test_is_string") {
 }
 
 TEST_CASE ("test N()") {
-  CHECK (N (tree ()) == 0);
-  CHECK (N (tree (0, tree ())) == 1);
-  CHECK (N (tree (0, tree (), tree ())) == 2);
-  CHECK (N (tree (0, tree (), tree (), tree ())) == 3);
+  CHECK_EQ (N (tree ()), 0);
+  CHECK_EQ (N (tree ("")), 0);
+  CHECK_EQ (N (tree ("atomic tree")), 11);
+  CHECK_EQ (N (tree (1)), 0);
+  CHECK_EQ (N (tree (1, tree ())), 1);
+  CHECK_EQ (N (tree (1, tree (), tree ())), 2);
+  CHECK_EQ (N (tree (1, tree (), tree (), tree ())), 3);
 }
 
 TEST_CASE ("test_arity") {
@@ -107,8 +111,31 @@ TEST_CASE ("test operator==") {
   CHECK (tree ("hello") == string ("hello"));
 }
 
+TEST_CASE ("tree operator*") {
+  CHECK_EQ (tree (label) * tree (label, "1", "2", "4"),
+            tree (label, "1", "2", "4"));
+  CHECK_EQ (tree ("str") * tree (label, "1", "2", "4"),
+            tree (label, "str", "1", "2", "4"));
+  CHECK_EQ (tree (label, "1", "2", "4") * tree ("str"),
+            tree (label, "1", "2", "4", "str"));
+  tree string_concat= tree ("str") * tree ("ing");
+  CHECK_EQ (string_concat->op, 0);
+  CHECK_EQ (N (string_concat), 2);
+  CHECK_EQ (A (string_concat), array<tree> ("str", "ing"));
+}
+
+TEST_CASE ("tree operator()") {
+  tree whole= tree (label, "str", "ing", "1", "2", "4");
+  CHECK_EQ (whole (2, N (whole)), tree (label, "1", "2", "4"));
+  CHECK_EQ (whole (0, 4), tree (label, "str", "ing", "1", "2"));
+  CHECK_EQ (whole (0, N (whole)), whole);
+
+  // tree atomic_tree= tree ("str"); this will cause crash!
+  // CHECK_EQ (atomic_tree (0, 1), atomic_tree);
+}
+
 TEST_CASE ("tree operator<<") {
-  tree t= tree (123); // 123 can be a number > 1
+  tree t= tree (label);
   t << "1"
     << "2"
     << "4";
@@ -125,6 +152,7 @@ TEST_CASE ("test strong_equal") {
   auto a= tree (0, tree ());
   auto b= &a;
   CHECK (strong_equal (a, *b));
+  CHECK (!strong_equal (tree (label, 1, 2), tree (label, 1, 2)));
   CHECK (!strong_equal (tree (0, 1, 2), tree (3, tree ())));
   CHECK (!strong_equal (tree (0, 1, 2), tree (4, tree ())));
 }
